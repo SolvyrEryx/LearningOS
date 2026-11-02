@@ -3,20 +3,20 @@
 const records = {
   saved: {
     label: 'WHERE WE STOPPED',
-    title: ['You solved it', 'with a hint.'],
-    attempt: 'Solved the cross after a hint about dominant alleles.',
-    evidence: 'Hinted success. Independent application still to check.',
-    next: 'Explain the result, then try a different cross without help.',
-    margin: 'The hint stays in the record.',
+    title: ['Find the gap', 'in the reasoning.'],
+    attempt: 'Applied the formula, but could not derive it from orthogonality.',
+    evidence: 'Recall passed. Derivation failed. Transfer not yet tested.',
+    next: 'Rebuild the derivation, then solve an unfamiliar case without hints.',
+    margin: 'A right answer still needs a reason.',
     footer: 'Saved for your next session'
   },
   next: {
     label: 'WHERE WE PICK UP',
-    title: ['Before we go on,', 'try it from memory.'],
-    attempt: 'Explain how you chose the alleles in the last cross.',
-    evidence: 'A new, unaided attempt. Your tutor checks the reasoning.',
-    next: 'Try a different cross, then return for a delayed check.',
-    margin: 'A first question, ready when you are.',
+    title: ['Rebuild the idea', 'from its foundations.'],
+    attempt: 'Check orthogonality before returning to the Fourier derivation.',
+    evidence: 'Record explanation and application separately, with all hints visible.',
+    next: 'Test an unfamiliar case, then schedule delayed retrieval.',
+    margin: 'Return to the first broken step.',
     footer: 'Read from your saved handover'
   }
 };
