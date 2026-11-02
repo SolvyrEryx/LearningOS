@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f2eb">
-  <title>LearningOS — Pick up where you left off.</title>
-  <meta name="description" content="A personal learning workspace for your AI tutor. Keep your attempts, hints and next steps in files you own. Open source and MIT licensed.">
+  <title>LearningOS | Learn anything. Reason from first principles.</title>
+  <meta name="description" content="A personal system for learning across disciplines. Prerequisite graphs, adaptive tutoring, evidence-based assessment, spaced retrieval and a Learning Atlas you own. Made by Ineffablebeast.">
   <link rel="canonical" href="https://www.rahulj.space/LearningOS/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="LearningOS — Pick up where you left off.">
-  <meta property="og:description" content="Give your AI tutor a place to remember the work you did. A folder, a conversation, and an exact next step.">
+  <meta property="og:title" content="LearningOS | Learn anything. Reason from first principles.">
+  <meta property="og:description" content="Study across disciplines with prerequisite maps, rigorous assessment, misconception diagnosis and spaced retrieval. An open source learning system by Ineffablebeast.">
   <meta property="og:url" content="https://www.rahulj.space/LearningOS/">
-  <meta property="og:image" content="https://www.rahulj.space/LearningOS/assets/social.png">
+  <meta property="og:image" content="https://www.rahulj.space/LearningOS/assets/social.png?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preload" href="assets/Newsreader.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="style.css?v=9c66bdf">
-  <script src="site.js" defer></script>
+  <script src="site.js?v=2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -35,100 +35,107 @@
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="red-square" aria-hidden="true"></span>A personal learning workspace</p>
-          <h1 id="hero-title">Make tomorrow’s<br class="desktop-break"> lesson start where<br class="desktop-break"> you left off.</h1>
-          <p class="hero-intro">Your AI tutor reads the work you saved: the problem you solved, the hint you needed, the question to try next.</p>
+          <p class="eyebrow"><span class="red-square" aria-hidden="true"></span>A personal system for learning across disciplines</p>
+          <h1 id="hero-title">Learn anything.<br class="desktop-break"> Reason from<br class="desktop-break"> first principles.</h1>
+          <p class="hero-intro">Study mathematics, philosophy, physics or code with a tutor that maps prerequisites, challenges your reasoning and tests whether you can use an idea in unfamiliar territory.</p>
           <div class="hero-actions">
             <a class="button button-dark" href="#get-started">Get LearningOS <span aria-hidden="true">↗</span></a>
             <a class="text-link" href="guide.pdf">Read the 6-page guide <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="requirements">Bring Python 3.11+ and an AI agent that can work with files.</p>
+          <p class="requirements">Open source. Your own files. Bring Python 3.11+ and a file-capable AI agent.</p>
         </div>
 
         <div class="specimen-wrap">
-          <div class="specimen-caption"><span>From one lesson to the next</span><span class="caption-line" aria-hidden="true"></span></div>
+          <div class="specimen-caption"><span>A closer look at understanding</span><span class="caption-line" aria-hidden="true"></span></div>
           <div class="notebook">
-            <div class="notebook-top"><span>LEARNING RECORD</span><span>001 / BIOLOGY</span></div>
+            <div class="notebook-top"><span>LEARNING RECORD</span><span>001 / MATHEMATICS</span></div>
             <div class="session-switch" role="group" aria-label="Choose an illustrative session">
               <button type="button" class="session-tab active" data-session="saved" aria-pressed="true">Last session</button>
               <button type="button" class="session-tab" data-session="next" aria-pressed="false">Next session <span aria-hidden="true">↗</span></button>
             </div>
             <div class="note-body" id="sample-record" aria-live="polite">
               <p class="note-date" id="note-label">WHERE WE STOPPED</p>
-              <h2 id="note-title">You solved it<br>with a hint.</h2>
-              <p class="note-topic">Mendelian inheritance</p>
+              <h2 id="note-title">Find the gap<br>in the reasoning.</h2>
+              <p class="note-topic">Fourier analysis / prerequisite check</p>
               <dl class="note-facts">
-                <div><dt>Attempt</dt><dd id="note-attempt">Solved the cross after a hint about dominant alleles.</dd></div>
-                <div><dt>Evidence</dt><dd id="note-evidence">Hinted success. Independent application still to check.</dd></div>
-                <div><dt>Next</dt><dd id="note-next">Explain the result, then try a different cross without help.</dd></div>
+                <div><dt>Attempt</dt><dd id="note-attempt">Applied the formula, but could not derive it from orthogonality.</dd></div>
+                <div><dt>Evidence</dt><dd id="note-evidence">Recall passed. Derivation failed. Transfer not yet tested.</dd></div>
+                <div><dt>Next</dt><dd id="note-next">Rebuild the derivation, then solve an unfamiliar case without hints.</dd></div>
               </dl>
-              <p class="margin-note" id="margin-note">The hint stays in the record.</p>
+              <p class="margin-note" id="margin-note">A right answer still needs a reason.</p>
             </div>
             <div class="notebook-bottom"><span class="save-dot" aria-hidden="true"></span><span id="note-footer">Saved for your next session</span><span aria-hidden="true">↳</span></div>
           </div>
-          <p class="example-label">An illustrative record, with made-up study content.</p>
+          <p class="example-label">Illustrative study record. No real learner data.</p>
         </div>
       </section>
 
       <div class="workspace-strip" aria-label="What LearningOS is made of">
-        <p><span class="strip-number">01</span><span>A folder <em>you own</em></span></p>
-        <p><span class="strip-number">02</span><span>A tutor <em>you talk to</em></span></p>
-        <p><span class="strip-number">03</span><span>A next step <em>you can find</em></span></p>
+        <p><span class="strip-number">01</span><span>Foundations <em>before shortcuts</em></span></p>
+        <p><span class="strip-number">02</span><span>Evidence <em>before confidence</em></span></p>
+        <p><span class="strip-number">03</span><span>Understanding <em>across disciplines</em></span></p>
       </div>
 
       <section class="method section-grid" id="how-it-works" aria-labelledby="method-title">
         <div class="section-intro">
-          <p class="eyebrow">A record of the work</p>
-          <h2 id="method-title">“I understand”<br>is a place to start.</h2>
-          <p>Then your tutor asks you to explain it in your own words and try a different problem. A few days later, you check what stuck.</p>
-          <p>LearningOS keeps those attempts separate from the help you needed, so your tutor has something concrete to work from.</p>
+          <p class="eyebrow">The learning method</p>
+          <h2 id="method-title">Knowledge you can<br>reconstruct and use.</h2>
+          <p>A polymath’s education needs breadth and a way to go deep. Follow a question into a new field, find the ideas it depends on, and work towards an explanation you can defend.</p>
+          <p>LearningOS gives your tutor a method for that work: diagnose, explain, reduce support, assess and revisit. What you can do unaided determines the next lesson.</p>
+          <p>Use it for a theorem, a code interview, a historical argument or an exam syllabus. Each subject keeps its own evidence, misconceptions and path forward.</p>
+          <a class="text-link" href="https://github.com/SolvyrEryx/LearningOS/blob/main/01_AGENTS_AND_SKILLS/docs/METHOD_AND_EVIDENCE.md">Read the methodology <span aria-hidden="true">↗</span></a>
         </div>
         <ol class="method-list">
-          <li><span class="step-number">01</span><div><h3>Start with what you can do.</h3><p>Your tutor checks a small piece first, then teaches the part you’re missing. A subject, a skill or a single question is enough.</p></div></li>
-          <li><span class="step-number">02</span><div><h3>Keep the useful details.</h3><p>Your tutor saves the question and your working, including the hint that helped or the mistake you repeated.</p></div></li>
-          <li><span class="step-number">03</span><div><h3>Return with a next step.</h3><p>Say <code>/save</code> before you stop. Next time, <code>/continue</code> brings back the handover and what’s due for review.</p></div></li>
+          <li><span class="step-number">01</span><div><h3>Prerequisite graphs &amp; first-principles study</h3><p>Build a concept catalogue and dependency graph from your syllabus or chosen goal. Your tutor probes the foundations, moves from concrete examples to formal reasoning, and fades worked examples as you become independent.</p></div></li>
+          <li><span class="step-number">02</span><div><h3>Assessment beyond a correct answer</h3><p>Examine explanation, application, recall, derivation, assumptions, transfer, method selection and execution. Your tutor diagnoses the first broken step, records hints, and tests a misconception again on a different task. Mastery requires repeated unaided evidence, including delayed retrieval.</p></div></li>
+          <li><span class="step-number">03</span><div><h3>Spaced retrieval &amp; unfamiliar problems</h3><p>Revisit concepts on a 1, 3, 7, 16 and 35-day ladder. Interleave topics so you practise selecting a method as well as executing it. Review priorities account for overdue retrieval, prerequisite gaps and recurring mistakes.</p></div></li>
+          <li><span class="step-number">04</span><div><h3>Source-grounded reasoning</h3><p>Index your notes, syllabi and textbooks. Trace claims to a page or line, preserve original documents, and separate source-backed explanations from general knowledge. Keep uncertain or disputed claims visible as open questions.</p></div></li>
+          <li><span class="step-number">05</span><div><h3>A Learning Atlas of your understanding</h3><p>Explore prerequisite maps, mastery overlays, misconceptions, revision queues and learning evidence in a local, offline report. Inspect the responses and judgments behind a concept’s status, then follow its sources and next actions.</p></div></li>
+          <li><span class="step-number">06</span><div><h3>Timed practice &amp; targeted retesting</h3><p>Prepare verified question banks, run timed mock or sectional practice, inspect error patterns and revisit unseen variants of failed questions. Reserve holdout questions for assessment. Historical attempts retain their question versions, while exam scores remain separate from concept mastery.</p></div></li>
         </ol>
       </section>
 
       <section class="start-section" id="get-started" aria-labelledby="start-title">
-        <div class="start-heading"><p class="eyebrow">Your first session</p><p class="small-label">OPEN SOURCE · MIT LICENSED</p></div>
+        <div class="start-heading"><p class="eyebrow">Begin an inquiry</p><p class="small-label">OPEN SOURCE · MIT LICENSED</p></div>
         <div class="start-grid">
           <div class="start-copy">
-            <h2 id="start-title">Give it something<br>you want to learn.</h2>
+            <h2 id="start-title">Choose a field.<br>Start with a question.</h2>
             <ol class="setup-list">
               <li><span>1.</span><p>Download and extract your own copy of LearningOS.</p></li>
               <li><span>2.</span><p>Open the folder in a file-capable AI agent, with Python 3.11+ installed.</p></li>
-              <li><span>3.</span><p>Paste this prompt. Change the subject. Answer the first question.</p></li>
+              <li><span>3.</span><p>Name what you want to understand. Ask for a diagnostic, then let the evidence set the depth.</p></li>
             </ol>
             <a class="button button-dark" href="https://github.com/SolvyrEryx/LearningOS/archive/refs/heads/main.zip">Download LearningOS <span aria-hidden="true">↓</span></a>
             <a class="source-link" href="https://github.com/SolvyrEryx/LearningOS">Or explore the repository <span aria-hidden="true">↗</span></a>
           </div>
           <div class="prompt-paper">
             <div class="prompt-heading"><span>PASTE INTO YOUR AI TUTOR</span><button id="copy-prompt" type="button">Copy prompt <span aria-hidden="true">↗</span></button></div>
-            <p id="starter-prompt">Read AGENTS.md and the five core files it points to. Run <code>python 01_AGENTS_AND_SKILLS/tools/learningos.py init-workspace</code>, then <code>python 01_AGENTS_AND_SKILLS/tools/learningos.py validate</code>. Preserve existing files and report any errors.<br><br>I want to learn <span class="subject-edit">Biology</span>. Help me choose a small first goal, check what I already know, and start teaching. Save real evidence as we go.</p>
-            <div class="prompt-footer"><span>Swap Biology for your subject.</span><span id="copy-status" role="status" aria-live="polite"></span></div>
+            <p id="starter-prompt">Read AGENTS.md and the five core files it points to. Run <code>python 01_AGENTS_AND_SKILLS/tools/learningos.py init-workspace</code>, then <code>python 01_AGENTS_AND_SKILLS/tools/learningos.py validate</code>. Preserve existing files and report any errors.<br><br>I want to understand <span class="subject-edit">Fourier analysis</span> from first principles. Map the prerequisites and test what I already know. Help me derive the ideas, challenge my assumptions, and test my reasoning on unfamiliar problems. Record hints and misconceptions, schedule retrieval, and save an exact next step.</p>
+            <div class="prompt-footer"><span>Replace Fourier analysis with your subject.</span><span id="copy-status" role="status" aria-live="polite"></span></div>
           </div>
         </div>
       </section>
 
       <section class="guide-band" aria-labelledby="guide-title">
         <a class="guide-icon" href="guide.pdf" tabindex="-1" aria-hidden="true"><span>LearningOS</span><span class="guide-cover-title">Start here.</span><span>THE FIELD GUIDE / 6 PAGES</span></a>
-        <div><p class="eyebrow">Keep this close</p><h2 id="guide-title">The first session, on paper.</h2><p>Setup, study, sources, saving your work, and what to do when something goes wrong.</p></div>
+        <div><p class="eyebrow">From curiosity to practice</p><h2 id="guide-title">Put the method to work.</h2><p>A six-page field guide to setting up your tutor, working from sources, recording evidence and returning for the next session.</p></div>
         <a class="text-link" href="guide.pdf">Open the guide <span class="link-meta">PDF · 6 pages</span><span aria-hidden="true">↗</span></a>
       </section>
 
       <section class="questions section-grid" aria-labelledby="questions-title">
-        <div class="section-intro"><p class="eyebrow">A few practical things</p><h2 id="questions-title">Before you begin.</h2></div>
+        <div class="section-intro"><p class="eyebrow">Working with the system</p><h2 id="questions-title">Build an education<br>you can inspect.</h2></div>
         <div class="faq-list">
-          <details><summary>What do I need installed?<span aria-hidden="true">+</span></summary><p>Python 3.11 or newer, and an AI agent that can read and write local files and run shell commands. The core Python toolkit uses the standard library. Your chosen agent may need its own account or subscription.</p></details>
-          <details><summary>Can I start without a syllabus?<span aria-hidden="true">+</span></summary><p>Yes. Pick a subject or skill and one thing you want to be able to do. Exams, deadlines and uploaded notes are optional. When you add sources, your tutor can teach from them and cite the page or line.</p></details>
+          <details><summary>Can I pursue several fields?<span aria-hidden="true">+</span></summary><p>Keep mathematics, philosophy, programming or any other subject in the same personal workspace. Each has its own concept catalogue, sources, misconceptions and mastery evidence. Your tutor saves the current subject before switching. A goal, question or skill is enough to begin; syllabi and exam dates are optional.</p></details>
+          <details><summary>How does the tutor adapt to me?<span aria-hidden="true">+</span></summary><p>Your record includes recurring mistakes, unresolved misconceptions, hint usage and approaches that helped or failed. The tutor reads that history to choose its explanation, check prerequisites and adjust support. You can inspect the evidence and the next action rather than relying on an unexplained score.</p></details>
+          <details><summary>What earns a claim of mastery?<span aria-hidden="true">+</span></summary><p>A checked learning cycle needs both explanation and application without hints or solution exposure to count as independent success. Provisional mastery requires repeated independent success, a non-familiar task, a delayed check and no unresolved linked misconception in the qualifying attempts. The mastery estimate is a transparent heuristic; its evidence and rules are inspectable.</p></details>
+          <details><summary>What makes the memory durable?<span aria-hidden="true">+</span></summary><p>Learning evidence lives in an append-only event history, with validated snapshots, checkpoints and an exact handover. Backups carry file hashes, and interrupted saves can be completed from matching records. Your tutor must record the work: say <code>/save</code> before stopping, <code>/continue</code> when returning, and <code>/atlas</code> to rebuild the offline report.</p></details>
+          <details><summary>What do I need to begin?<span aria-hidden="true">+</span></summary><p>Python 3.11 or newer, and an AI agent that can read and write local files and run shell commands. The core toolkit uses the standard library; PDF text extraction optionally uses pypdf. Your chosen agent may need its own account or subscription. Teaching and grading depend on that model and the sources you check against.</p></details>
           <details><summary>What stays on my computer?<span aria-hidden="true">+</span></summary><p>Your workspace holds your documents, attempts, learning state and handovers. The study toolkit makes no network calls. If your AI tutor uses a hosted model, content it reads into the conversation is processed by that provider. Local files do not make the model’s inference local.</p></details>
-          <details><summary>Where do lessons and progress live?<span aria-hidden="true">+</span></summary><p>Lessons happen in your AI agent’s chat. Your tutor saves evidence into the workspace and generates the Learning Atlas, an offline report you open in a browser. Ask <code>/atlas</code> to rebuild it, then reload the report. Ask <code>/save</code> before closing your chat.</p></details>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer"><a class="wordmark" href="./"><span class="brand-mark" aria-hidden="true">L<span>▪</span></span>LearningOS</a><p>Made by <a href="https://github.com/SolvyrEryx">Solvyr Eryx</a>. Yours to use and change.</p><div><a href="https://github.com/SolvyrEryx/LearningOS">GitHub <span aria-hidden="true">↗</span></a><a href="https://github.com/SolvyrEryx/LearningOS/blob/main/LICENSE">MIT license <span aria-hidden="true">↗</span></a></div></footer>
+    <footer class="site-footer"><a class="wordmark" href="./"><span class="brand-mark" aria-hidden="true">L<span>▪</span></span>LearningOS</a><p>Made by <a href="https://github.com/SolvyrEryx">Ineffablebeast</a>. Yours to use and change.</p><div><a href="https://github.com/SolvyrEryx/LearningOS">GitHub <span aria-hidden="true">↗</span></a><a href="https://github.com/SolvyrEryx/LearningOS/blob/main/LICENSE">MIT license <span aria-hidden="true">↗</span></a></div></footer>
   </div>
 </body>
 </html>
