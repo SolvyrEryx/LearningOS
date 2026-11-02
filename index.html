@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f2eb">
   <title>LearningOS | Learn anything. Reason from first principles.</title>
-  <meta name="description" content="A personal system for learning across disciplines. Prerequisite graphs, adaptive tutoring, evidence-based assessment, spaced retrieval and a Learning Atlas you own. Made by Ineffablebeast.">
+  <meta name="description" content="A personal system for learning across disciplines. Explore five graph families, ten Learning Atlas views, evidence-based assessment, spaced retrieval and searchable memory. Made by Ineffablebeast.">
   <link rel="canonical" href="https://www.rahulj.space/LearningOS/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="LearningOS | Learn anything. Reason from first principles.">
@@ -17,7 +17,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preload" href="assets/Newsreader.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="style.css?v=9c66bdf">
+  <link rel="stylesheet" href="style.css?v=atlas-3">
   <script src="site.js?v=2" defer></script>
 </head>
 <body>
@@ -26,7 +26,7 @@
     <header class="site-header">
       <a class="wordmark" href="./" aria-label="LearningOS home"><span class="brand-mark" aria-hidden="true">L<span>▪</span></span>LearningOS</a>
       <nav aria-label="Main navigation">
-        <a href="#how-it-works">How it works</a>
+        <a href="#graphs">Atlas &amp; graphs</a>
         <a href="guide.pdf">The guide <span aria-hidden="true">↗</span></a>
         <a class="nav-github" href="https://github.com/SolvyrEryx/LearningOS">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
@@ -90,8 +90,60 @@
           <li><span class="step-number">02</span><div><h3>Assessment beyond a correct answer</h3><p>Examine explanation, application, recall, derivation, assumptions, transfer, method selection and execution. Your tutor diagnoses the first broken step, records hints, and tests a misconception again on a different task. Mastery requires repeated unaided evidence, including delayed retrieval.</p></div></li>
           <li><span class="step-number">03</span><div><h3>Spaced retrieval &amp; unfamiliar problems</h3><p>Revisit concepts on a 1, 3, 7, 16 and 35-day ladder. Interleave topics so you practise selecting a method as well as executing it. Review priorities account for overdue retrieval, prerequisite gaps and recurring mistakes.</p></div></li>
           <li><span class="step-number">04</span><div><h3>Source-grounded reasoning</h3><p>Index your notes, syllabi and textbooks. Trace claims to a page or line, preserve original documents, and separate source-backed explanations from general knowledge. Keep uncertain or disputed claims visible as open questions.</p></div></li>
-          <li><span class="step-number">05</span><div><h3>A Learning Atlas of your understanding</h3><p>Explore prerequisite maps, mastery overlays, misconceptions, revision queues and learning evidence in a local, offline report. Inspect the responses and judgments behind a concept’s status, then follow its sources and next actions.</p></div></li>
+          <li><span class="step-number">05</span><div><h3><a href="#atlas">A Learning Atlas of your understanding <span aria-hidden="true">↗</span></a></h3><p>Ten views connect your concept map, learning evidence, revision, exam results, error patterns and memory. Inspect the responses and judgments behind a concept’s status, then follow its sources and next actions.</p></div></li>
           <li><span class="step-number">06</span><div><h3>Timed practice &amp; targeted retesting</h3><p>Prepare verified question banks, run timed mock or sectional practice, inspect error patterns and revisit unseen variants of failed questions. Reserve holdout questions for assessment. Historical attempts retain their question versions, while exam scores remain separate from concept mastery.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="graph-section section-grid" id="graphs" aria-labelledby="graphs-title">
+        <div class="section-intro">
+          <p class="eyebrow">Five graph families</p>
+          <h2 id="graphs-title">See the structure<br>of what you know.</h2>
+          <p>A subject has dependencies, weak foundations and ideas that open the way to others. LearningOS gives you several ways to inspect that structure.</p>
+          <dl class="graph-index">
+            <div><dt>Prerequisite map</dt><dd>Trace the concepts a topic depends on and the study order those dependencies suggest.</dd></div>
+            <div><dt>Mastery overlay</dt><dd>Read learning states, estimated mastery and due-review annotations over the prerequisite structure.</dd></div>
+            <div><dt>Misconception map</dt><dd>Connect a recorded misconception to the concepts where it appeared and follow its resolution state.</dd></div>
+            <div><dt>Cross-subject graph</dt><dd>See declared prerequisites across fields. Each concept retains its own subject and learning evidence.</dd></div>
+            <div><dt>Progress graph</dt><dd>Inspect the distribution of learning states and the sessions in which concepts advanced.</dd></div>
+          </dl>
+        </div>
+        <figure class="graph-figure">
+          <div class="graph-figure-heading"><span>MATHEMATICS / ILLUSTRATIVE MAP</span><span>↓ PREREQUISITES</span></div>
+          <svg class="sample-graph" viewBox="0 0 520 402" role="img" aria-labelledby="graph-demo-title graph-demo-desc">
+            <title id="graph-demo-title">Example prerequisite map leading to Fourier series</title>
+            <desc id="graph-demo-desc">Periodic functions and definite integrals lead to orthogonality, which leads to Fourier series. Every node includes a sample learning state. This is an illustration, not learner data.</desc>
+            <defs><marker id="sample-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a9a79a"/></marker></defs>
+            <g fill="none" stroke="#a9a79a" stroke-width="1.2" marker-end="url(#sample-arrow)"><path d="M132 98 V130 Q132 144 148 144 H245 Q260 144 260 163"/><path d="M388 98 V130 Q388 144 372 144 H275 Q260 144 260 163"/><path d="M260 235 V292"/></g>
+            <g class="sample-node"><rect x="22" y="26" width="220" height="72" rx="2"/><circle cx="39" cy="51" r="3" fill="#718b9a"/><text class="sample-node-title" x="51" y="55">Periodic functions</text><text class="sample-node-state" x="39" y="79">Practising</text></g>
+            <g class="sample-node"><rect x="278" y="26" width="220" height="72" rx="2"/><circle cx="295" cy="51" r="3" fill="#b36549"/><text class="sample-node-title" x="307" y="55">Definite integrals</text><text class="sample-node-state" x="295" y="79">Needs review</text></g>
+            <g class="sample-node"><rect x="150" y="163" width="220" height="72" rx="2"/><circle cx="167" cy="188" r="3" fill="#caa16f"/><text class="sample-node-title" x="179" y="192">Orthogonality</text><text class="sample-node-state" x="167" y="216">Developing</text></g>
+            <g class="sample-node"><rect x="150" y="292" width="220" height="72" rx="2"/><circle cx="167" cy="317" r="3" fill="#b7b3a2"/><text class="sample-node-title" x="179" y="321">Fourier series</text><text class="sample-node-state" x="167" y="345">Unassessed</text></g>
+          </svg>
+          <figcaption>
+            <p class="graph-example">Sample states and illustrative dependencies.</p>
+            <h3>Follow a node back to its evidence.</h3>
+            <p>In the Atlas, select a concept to inspect its prerequisites, independent successes, hints, next review, source references, helpful interventions and full event trail.</p>
+            <p class="graph-format-note">The graph tools also generate JSON, Mermaid and HTML files. Rendered graph HTML and SVG use optional local Mermaid tooling; the Atlas learning map renders directly.</p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="atlas-section section-grid" id="atlas" aria-labelledby="atlas-title">
+        <div class="section-intro">
+          <p class="eyebrow">Inside the Learning Atlas</p>
+          <h2 id="atlas-title">Inspect your learning<br>across ten views.</h2>
+          <p>Open a self-contained report in your browser and move from an overview of your studies to the exact response behind a learning judgment.</p>
+          <p>The concept map, charts, search, fonts and included evidence travel with the generated file. The Atlas works offline. Your tutor records the work and rebuilds the report; reload it after a save.</p>
+          <a class="text-link" href="https://github.com/SolvyrEryx/LearningOS/blob/main/01_AGENTS_AND_SKILLS/docs/EXAM_AND_ATLAS.md">Read the Atlas reference <span aria-hidden="true">↗</span></a>
+          <div class="atlas-shortcut"><kbd>Ctrl K</kbd><p>Search the memory included in your Atlas, then open the matching record.</p></div>
+        </div>
+        <ol class="method-list atlas-directory">
+          <li><span class="step-number">01 / 02</span><div><h3>Overview &amp; Learning map</h3><p>See subjects, concept-state distributions, reviews due, recent activity and a study plan for your time budget. Filter the map by subject or learning state, inspect prerequisite links, and use the complete concept table to find the next foundation to assess.</p></div></li>
+          <li><span class="step-number">03 / 04</span><div><h3>Learning evidence &amp; Revision</h3><p>Read actual questions, responses, feedback, hints, annotated solution steps and judgments across eight dimensions. Keep saved explanations and uncertainties alongside them. The revision queue brings together due dates, learning states and the exact first activity for each concept.</p></div></li>
+          <li><span class="step-number">05 / 06</span><div><h3>Exam performance &amp; Error patterns</h3><p>Review marks, question-level answers and solutions, timing coverage, pauses and prior exposure. Inspect confidence calibration when recorded, then connect lost marks and recurring mistakes to specific repair tasks. Open-test answers and solutions stay hidden in the Atlas until completion.</p></div></li>
+          <li><span class="step-number">07 / 08</span><div><h3>Progress &amp; Memory explorer</h3><p>Separate unaided, delayed and novel successes. Read a 12-week assessed-attempt heatmap, daily evidence tables and test-score trends. Search events, notes, handovers and checkpoints by keyword, subject, record type or date, then inspect the matching record.</p></div></li>
+          <li><span class="step-number">09 / 10</span><div><h3>Source library &amp; Data health</h3><p>Find source identities, document types, page counts, local paths and extraction warnings. Inspect validation errors, remedies, unavailable files and SHA-256 input fingerprints. A coverage manifest shows what the snapshot includes and what stays outside it.</p></div></li>
         </ol>
       </section>
 
