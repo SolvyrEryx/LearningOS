@@ -1,0 +1,13 @@
+* text=auto
+
+# Keep document and font bytes intact across Windows and Unix checkouts.
+*.pdf binary
+*.ttf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
+
+# Windows launchers use native line endings.
+*.cmd text eol=crlf
+*.vbs text eol=crlf

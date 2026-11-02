@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://learningos.local/schemas/checkpoint.schema.json",
+  "title": "Checkpoint",
+  "description": "03_MEMORY/checkpoints/<subject_id>/<session_id>.json — a resume point. where_we_stopped and next_action are written for a reader with no memory of the conversation. state_fingerprints records a sha256 per memory file at checkpoint time, so a later resume can tell whether the state it is briefing from still matches; a mismatch is a warning, not a failure.",
+  "type": "object",
+  "required": ["schema_version", "checkpoint_id", "session_id", "subject_id", "created_at", "where_we_stopped", "next_action"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "checkpoint_id": {"type": "string", "minLength": 1},
+    "session_id": {"type": "string", "minLength": 1},
+    "subject_id": {"type": "string", "pattern": "^(_template|[a-z0-9][a-z0-9_-]*)$"},
+    "created_at": {"$ref": "#/$defs/timestamp"},
+    "where_we_stopped": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Concrete, not 'continue the topic'."
+    },
+    "concepts_in_flight": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["concept_id"],
+        "additionalProperties": false,
+        "properties": {
+          "concept_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*:[a-z0-9][a-z0-9_-]*$"
+          },
+          "status": {
+            "type": ["string", "null"],
+            "enum": ["unassessed", "developing", "practising", "provisionally_mastered", "needs_review", null]
+          },
+          "fading_rung": {"type": ["string", "null"]},
+          "note": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The exact first activity of the next session."
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "trigger": {
+      "type": ["string", "null"],
+      "description": "Which checkpoint trigger fired: status_change, time, learner_stopping, pre_risky_op, misconception, session_end."
+    },
+    "agent": {
+      "type": ["string", "null"],
+      "description": "Which agent was driving, for provenance across tools."
+    },
+    "tool_version": {"type": ["string", "null"]},
+    "state_fingerprints": {
+      "type": "object",
+      "description": "Workspace-relative file path to \"sha256:<64 hex>\"."
+    }
+  },
+  "$defs": {
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    }
+  }
+}

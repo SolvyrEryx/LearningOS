@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "_template-checkpoint",
+  "session_id": "1970-01-01-_template-01",
+  "subject_id": "_template",
+  "created_at": "1970-01-01T00:00:00Z",
+  "where_we_stopped": "Template checkpoint. Replace with a concrete description of the stopping point, written for a reader with no memory of the conversation.",
+  "concepts_in_flight": [],
+  "next_action": "Template checkpoint. Replace with the exact first activity of the next session.",
+  "open_questions": [],
+  "trigger": null,
+  "agent": null,
+  "tool_version": null,
+  "state_fingerprints": {}
+}

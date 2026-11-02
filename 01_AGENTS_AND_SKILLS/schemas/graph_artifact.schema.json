@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://learningos.local/schemas/graph_artifact.schema.json",
+  "title": "Graph artefact",
+  "description": "03_MEMORY/graphs/<subject_id>/<kind>.json (and 03_MEMORY/graphs/_cross/ for cross_subject) — the canonical graph data from which Mermaid text, optional SVG and the HTML viewer are derived. Graphs are data-first on purpose: the .mmd is a pure deterministic function of this file, so output is byte-stable and a missing renderer costs only the picture. source_fingerprints records which memory state the graph was drawn from.",
+  "type": "object",
+  "required": ["schema_version", "graph_id", "kind", "subject_ids", "generated_at", "nodes", "edges"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "graph_id": {"type": "string", "minLength": 1},
+    "kind": {
+      "type": "string",
+      "enum": ["concept_prerequisite", "learner_mastery", "misconception", "cross_subject", "progress"]
+    },
+    "subject_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "pattern": "^(_template|[a-z0-9][a-z0-9_-]*)$"}
+    },
+    "generated_at": {"$ref": "#/$defs/timestamp"},
+    "generator": {
+      "type": ["string", "null"],
+      "description": "e.g. learningos 0.1.0 graphs.build."
+    },
+    "title": {"type": ["string", "null"]},
+    "source_fingerprints": {
+      "type": "object",
+      "description": "Workspace-relative input file path to \"sha256:<64 hex>\"."
+    },
+    "legend": {
+      "type": "array",
+      "description": "Text labels for every style class used. Meaning is never encoded in colour alone.",
+      "items": {
+        "type": "object",
+        "required": ["key", "label"],
+        "additionalProperties": false,
+        "properties": {
+          "key": {"type": "string", "minLength": 1},
+          "label": {"type": "string", "minLength": 1},
+          "style": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A concept id, a misconception id, or a synthetic id for aggregate nodes."
+          },
+          "label": {"type": "string", "minLength": 1},
+          "group": {
+            "type": ["string", "null"],
+            "description": "Subgraph: a unit for concept graphs, a subject for cross_subject."
+          },
+          "status": {
+            "type": ["string", "null"],
+            "enum": ["unassessed", "developing", "practising", "provisionally_mastered", "needs_review", null]
+          },
+          "mastery": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+          "style_class": {"type": ["string", "null"]},
+          "shape": {
+            "type": ["string", "null"],
+            "enum": ["rect", "round", "stadium", "hexagon", "diamond", "circle", null]
+          },
+          "value": {
+            "type": ["number", "null"],
+            "description": "Used by the `progress` kind for pie slices."
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "type"],
+        "additionalProperties": false,
+        "properties": {
+          "from": {"type": "string", "minLength": 1},
+          "to": {"type": "string", "minLength": 1},
+          "type": {
+            "type": "string",
+            "enum": ["prerequisite", "related", "applies-to", "exhibits"]
+          },
+          "label": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "series": {
+      "type": "array",
+      "description": "Optional per-session advance series for the `progress` kind.",
+      "items": {
+        "type": "object",
+        "required": ["key", "value"],
+        "additionalProperties": false,
+        "properties": {
+          "key": {"type": "string", "minLength": 1},
+          "value": {"type": "number"},
+          "label": {"type": ["string", "null"]}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    }
+  }
+}

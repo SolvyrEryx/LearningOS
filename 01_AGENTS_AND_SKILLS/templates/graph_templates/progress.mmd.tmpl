@@ -1,0 +1,15 @@
+%% LearningOS graph template — kind: progress
+%% Static frame only. Slice lines are generated from the graph artefact JSON by
+%% graphs/mermaid.py. Placeholders:
+%%   {{TITLE}}         graph title
+%%   {{GENERATED_AT}}  ISO-8601 UTC timestamp from the artefact
+%%   {{SUBJECT_IDS}}   comma-separated subject ids
+%%   {{SLICES}}        one `"<status label>" : <count>` line per status, sorted
+%% A pie chart is appropriate here because the quantity really is a partition of one set: every
+%% concept has exactly one status. Counts, not percentages, are written into the labels so the
+%% numbers are readable without the chart.
+%% title: {{TITLE}}
+%% generated_at: {{GENERATED_AT}}
+%% subjects: {{SUBJECT_IDS}}
+pie title Concept status distribution
+{{SLICES}}

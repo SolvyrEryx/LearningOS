@@ -1,0 +1,18 @@
+%% LearningOS graph template — kind: concept_prerequisite
+%% Static frame only. Node and edge lines are generated from the graph artefact JSON by
+%% graphs/mermaid.py and substituted for the placeholders below. Placeholders:
+%%   {{TITLE}}         graph title
+%%   {{GENERATED_AT}}  ISO-8601 UTC timestamp from the artefact
+%%   {{SUBJECT_IDS}}   comma-separated subject ids
+%%   {{NODES}}         node and subgraph lines, sorted
+%%   {{EDGES}}         edge lines, sorted
+%% Nodes are grouped into one subgraph per syllabus unit. Edge labels name the edge type, so the
+%% diagram is readable without the legend.
+%% title: {{TITLE}}
+%% generated_at: {{GENERATED_AT}}
+%% subjects: {{SUBJECT_IDS}}
+flowchart LR
+  classDef unit fill:#ffffff,stroke:#555555,stroke-width:1px;
+  classDef concept fill:#f4f4f4,stroke:#333333,stroke-width:1px,color:#000000;
+{{NODES}}
+{{EDGES}}

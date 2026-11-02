@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "subject_id": "_template",
+  "name": "Template subject",
+  "exam_date": null,
+  "created_at": "1970-01-01T00:00:00Z",
+  "updated_at": "1970-01-01T00:00:00Z",
+  "current_unit": null,
+  "active_concept_ids": [],
+  "session_count": 0,
+  "total_minutes": 0,
+  "last_session_id": null,
+  "last_session_at": null,
+  "coverage": {
+    "planned": 0,
+    "touched": 0,
+    "practising": 0,
+    "provisionally_mastered": 0
+  },
+  "goals": [],
+  "constraints": []
+}

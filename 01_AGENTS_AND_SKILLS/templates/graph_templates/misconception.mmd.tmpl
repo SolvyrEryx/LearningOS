@@ -1,0 +1,27 @@
+%% LearningOS graph template — kind: misconception
+%% Static frame only. Node and edge lines are generated from the graph artefact JSON by
+%% graphs/mermaid.py. Placeholders:
+%%   {{TITLE}}         graph title
+%%   {{GENERATED_AT}}  ISO-8601 UTC timestamp from the artefact
+%%   {{SUBJECT_IDS}}   comma-separated subject ids
+%%   {{NODES}}         concept nodes, then misconception nodes as {{hexagons}}, sorted
+%%   {{EDGES}}         `exhibits` edges from concept to misconception, sorted
+%%   {{LEGEND}}        legend node lines built from artefact["legend"]
+%% Misconception nodes use the hexagon shape as well as a class, so the two node kinds are
+%% distinguishable without colour. A misconception touching many concepts is a hub worth a
+%% dedicated session.
+%% title: {{TITLE}}
+%% generated_at: {{GENERATED_AT}}
+%% subjects: {{SUBJECT_IDS}}
+flowchart TD
+  classDef concept fill:#f4f4f4,stroke:#333333,stroke-width:1px,color:#000000;
+  classDef mc_open fill:#f8d7da,stroke:#8b1c24,stroke-width:2px,color:#000000;
+  classDef mc_monitoring fill:#fdf3d0,stroke:#8a6d1a,stroke-width:1px,color:#000000;
+  classDef mc_resolved fill:#dff0d8,stroke:#2d6a2d,stroke-width:1px,color:#000000;
+  classDef legend fill:#ffffff,stroke:#333333,stroke-width:1px,color:#000000;
+{{NODES}}
+{{EDGES}}
+  subgraph Legend["Legend (text labels, not colour)"]
+    direction TB
+{{LEGEND}}
+  end

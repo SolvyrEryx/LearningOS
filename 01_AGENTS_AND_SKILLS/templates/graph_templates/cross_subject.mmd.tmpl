@@ -1,0 +1,29 @@
+%% LearningOS graph template — kind: cross_subject
+%% Static frame only. Subgraph, node and edge lines are generated from the graph artefact JSON by
+%% graphs/mermaid.py. Placeholders:
+%%   {{TITLE}}         graph title
+%%   {{GENERATED_AT}}  ISO-8601 UTC timestamp from the artefact
+%%   {{SUBJECT_IDS}}   comma-separated subject ids
+%%   {{NODES}}         one subgraph per subject, containing that subject's nodes, sorted
+%%   {{EDGES}}         only prerequisite edges whose endpoints are in different subjects
+%%   {{LEGEND}}        legend node lines built from artefact["legend"]
+%% Subject isolation still holds here: every node keeps the status recorded in its OWN subject's
+%% files. A subject's mastery is never applied to another subject's nodes, which is why a freshly
+%% initialised subject shows as unassessed next to a fully mastered neighbour.
+%% title: {{TITLE}}
+%% generated_at: {{GENERATED_AT}}
+%% subjects: {{SUBJECT_IDS}}
+flowchart LR
+  classDef subject fill:#ffffff,stroke:#555555,stroke-width:1px;
+  classDef unassessed fill:#ffffff,stroke:#777777,stroke-width:1px,color:#000000;
+  classDef developing fill:#fdf3d0,stroke:#8a6d1a,stroke-width:1px,color:#000000;
+  classDef practising fill:#dceaf7,stroke:#1f4e79,stroke-width:1px,color:#000000;
+  classDef provisionally_mastered fill:#dff0d8,stroke:#2d6a2d,stroke-width:2px,color:#000000;
+  classDef needs_review fill:#f8d7da,stroke:#8b1c24,stroke-width:2px,color:#000000;
+  classDef legend fill:#ffffff,stroke:#333333,stroke-width:1px,color:#000000;
+{{NODES}}
+{{EDGES}}
+  subgraph Legend["Legend (text labels, not colour)"]
+    direction TB
+{{LEGEND}}
+  end

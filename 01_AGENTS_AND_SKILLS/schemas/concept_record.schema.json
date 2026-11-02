@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://learningos.local/schemas/concept_record.schema.json",
+  "title": "Concept record",
+  "description": "One concept's learning state. Stored as a value in 03_MEMORY/subjects/<subject_id>/concept_mastery.json under concepts[\"<concept_id>\"]. The prefix of concept_id before ':' must equal subject_id, which must equal the owning directory name; that equality is enforced by validation.py, not by this schema.",
+  "type": "object",
+  "required": ["schema_version", "concept_id", "name", "subject_id", "status", "updated_at"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1,
+      "description": "Version of this record format."
+    },
+    "concept_id": {
+      "$ref": "#/$defs/concept_id"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable concept name as the learner would say it."
+    },
+    "subject_id": {
+      "$ref": "#/$defs/subject_id"
+    },
+    "prerequisite_ids": {
+      "type": "array",
+      "description": "Concepts that must be in place first. May reference another subject's concept id.",
+      "items": {"$ref": "#/$defs/concept_id"}
+    },
+    "source_refs": {
+      "type": "array",
+      "description": "Where this concept is covered in the learner's material.",
+      "items": {"$ref": "#/$defs/source_ref"}
+    },
+    "status": {
+      "$ref": "#/$defs/status"
+    },
+    "mastery_estimate": {
+      "$ref": "#/$defs/unit_interval",
+      "description": "Heuristic estimate of the chance of an unaided correct explanation AND application right now. Never a measurement. 2 decimal places."
+    },
+    "confidence_estimate": {
+      "$ref": "#/$defs/unit_interval",
+      "description": "The learner's own self-report. Never used to raise status."
+    },
+    "last_attempted_at": {
+      "$ref": "#/$defs/timestamp_or_null"
+    },
+    "last_successful_retrieval_at": {
+      "$ref": "#/$defs/timestamp_or_null"
+    },
+    "independent_successes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Count of attempts with outcome independent_success and zero hints. Nothing else increments this."
+    },
+    "hint_usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "total_hints": {"type": "integer", "minimum": 0},
+        "hinted_successes": {"type": "integer", "minimum": 0},
+        "last_hint_level": {"type": ["integer", "null"], "minimum": 1, "maximum": 4}
+      }
+    },
+    "recurring_mistakes": {
+      "type": "array",
+      "description": "Reusable short descriptions of repeated errors. The same pattern increments count rather than adding an entry.",
+      "items": {
+        "type": "object",
+        "required": ["pattern", "count"],
+        "additionalProperties": false,
+        "properties": {
+          "pattern": {"type": "string", "minLength": 1},
+          "count": {"type": "integer", "minimum": 1},
+          "first_seen_at": {"$ref": "#/$defs/timestamp_or_null"},
+          "last_seen_at": {"$ref": "#/$defs/timestamp_or_null"}
+        }
+      }
+    },
+    "misconception_ids": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/misconception_id"}
+    },
+    "helpful_interventions": {
+      "type": "array",
+      "description": "Approaches that demonstrably worked, e.g. worked-example-fading, diagram:spectrum.",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "failed_interventions": {
+      "type": "array",
+      "description": "Approaches that demonstrably did not work and must not be repeated.",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "retention_evidence": {
+      "type": "array",
+      "description": "Ordered oldest-first attempt history. delay_days is the gap since the previous attempt on this concept.",
+      "items": {
+        "type": "object",
+        "required": ["at", "outcome"],
+        "additionalProperties": false,
+        "properties": {
+          "at": {"$ref": "#/$defs/timestamp"},
+          "delay_days": {"type": ["number", "null"], "minimum": 0},
+          "outcome": {"$ref": "#/$defs/outcome"},
+          "difficulty": {"$ref": "#/$defs/difficulty"},
+          "novelty": {"$ref": "#/$defs/novelty"},
+          "hints_used": {"type": "integer", "minimum": 0},
+          "session_id": {"type": ["string", "null"]},
+          "event_id": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "next_action": {
+      "type": ["string", "null"],
+      "description": "The exact next activity, written for a reader with no memory of the conversation."
+    },
+    "review_due_at": {
+      "$ref": "#/$defs/timestamp_or_null"
+    },
+    "unit": {
+      "type": ["string", "null"],
+      "description": "Syllabus unit or module this concept belongs to."
+    },
+    "updated_at": {
+      "$ref": "#/$defs/timestamp"
+    }
+  },
+  "$defs": {
+    "concept_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*:[a-z0-9][a-z0-9_-]*$",
+      "description": "<subject_id>:<slug>"
+    },
+    "subject_id": {
+      "type": "string",
+      "pattern": "^(_template|[a-z0-9][a-z0-9_-]*)$"
+    },
+    "misconception_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*:mc-[0-9]{3}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+      "description": "ISO-8601 UTC, second precision, trailing Z."
+    },
+    "timestamp_or_null": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "unit_interval": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["unassessed", "developing", "practising", "provisionally_mastered", "needs_review"]
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["independent_success", "hinted_success", "partial", "fail"]
+    },
+    "novelty": {
+      "type": ["string", "null"],
+      "enum": ["familiar", "variant", "novel", null]
+    },
+    "difficulty": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 5
+    },
+    "source_ref": {
+      "type": "object",
+      "required": ["source_id"],
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "locator": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "page": {"type": ["integer", "null"], "minimum": 1},
+            "page_end": {"type": ["integer", "null"], "minimum": 1},
+            "line": {"type": ["integer", "null"], "minimum": 1},
+            "section": {"type": ["string", "null"]}
+          }
+        },
+        "note": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

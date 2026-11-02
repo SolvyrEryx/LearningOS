@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://learningos.local/schemas/subject_state.schema.json",
+  "title": "Subject state",
+  "description": "03_MEMORY/subjects/<subject_id>/subject_state.json — counters, coverage and goals for one subject. Updated at the end of every session.",
+  "type": "object",
+  "required": ["schema_version", "subject_id", "name", "created_at", "updated_at"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "subject_id": {"type": "string", "pattern": "^(_template|[a-z0-9][a-z0-9_-]*)$"},
+    "name": {"type": "string", "minLength": 1},
+    "exam_date": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Local calendar date of the exam, or null."
+    },
+    "created_at": {"$ref": "#/$defs/timestamp"},
+    "updated_at": {"$ref": "#/$defs/timestamp"},
+    "current_unit": {"type": ["string", "null"]},
+    "active_concept_ids": {
+      "type": "array",
+      "description": "Concepts in flight right now.",
+      "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*:[a-z0-9][a-z0-9_-]*$"}
+    },
+    "session_count": {"type": "integer", "minimum": 0},
+    "total_minutes": {"type": "number", "minimum": 0},
+    "last_session_id": {"type": ["string", "null"]},
+    "last_session_at": {"$ref": "#/$defs/timestamp_or_null"},
+    "coverage": {
+      "type": "object",
+      "description": "Concept counts. `planned` comes from the catalogue; the rest are derived from concept statuses.",
+      "additionalProperties": false,
+      "properties": {
+        "planned": {"type": "integer", "minimum": 0},
+        "touched": {"type": "integer", "minimum": 0},
+        "practising": {"type": "integer", "minimum": 0},
+        "provisionally_mastered": {"type": "integer", "minimum": 0}
+      }
+    },
+    "goals": {
+      "type": "array",
+      "description": "What the learner wants from this subject, in their own words.",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "constraints": {
+      "type": "array",
+      "description": "Time limits, syllabus restrictions, allowed notation, exam format.",
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "$defs": {
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "timestamp_or_null": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    }
+  }
+}

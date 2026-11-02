@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://learningos.local/schemas/learning_preferences.schema.json",
+  "title": "Learning preferences",
+  "description": "03_MEMORY/global/learning_preferences.json — machine-readable, cross-subject preferences for how sessions should run. These are stated preferences, not inferred traits, and they are the lowest-precedence instruction source: a preference never overrides the system contract or the memory protocol.",
+  "type": "object",
+  "required": ["schema_version", "updated_at"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "updated_at": {"$ref": "#/$defs/timestamp"},
+    "default_session_minutes": {"type": ["integer", "null"], "minimum": 5},
+    "max_session_minutes": {"type": ["integer", "null"], "minimum": 5},
+    "explanation_style": {
+      "type": ["string", "null"],
+      "enum": ["concrete_first", "formal_first", "analogy_first", "socratic", null],
+      "description": "Starting rung on the explanation ladder. concrete_first is the default and the safest."
+    },
+    "worked_example_appetite": {
+      "type": ["string", "null"],
+      "enum": ["high", "medium", "low", null]
+    },
+    "hint_eagerness": {
+      "type": ["string", "null"],
+      "enum": ["ask_before_hinting", "hint_when_stuck", "minimal_hints", null],
+      "description": "How readily hints are offered. Hints are always recorded regardless."
+    },
+    "diagram_preference": {
+      "type": ["string", "null"],
+      "enum": ["often", "when_structural", "rarely", null]
+    },
+    "notation": {
+      "type": "array",
+      "description": "Notation conventions the learner's courses use.",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "language": {"type": ["string", "null"]},
+    "retrieval_at_session_start": {
+      "type": "boolean",
+      "description": "Open each session with retrieval of the previous session's material."
+    },
+    "interleaving": {
+      "type": "boolean",
+      "description": "Mix two or three concepts per practice block rather than drilling one."
+    },
+    "timezone": {
+      "type": ["string", "null"],
+      "description": "For scheduling only. Stored timestamps stay UTC."
+    },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "require_text_legends": {
+          "type": "boolean",
+          "description": "Always true in practice: meaning is never encoded in colour alone."
+        },
+        "avoid_unicode_math": {"type": "boolean"},
+        "max_diagram_nodes": {"type": ["integer", "null"], "minimum": 3}
+      }
+    },
+    "notes": {"type": ["string", "null"]}
+  },
+  "$defs": {
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    }
+  }
+}

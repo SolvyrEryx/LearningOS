@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://learningos.local/schemas/backup_manifest.schema.json",
+  "title": "Backup manifest",
+  "description": "03_MEMORY/backups/memory-<UTC timestamp>.manifest.json — written beside the zip it describes. restore verifies every sha256 in this manifest before writing anything, so a truncated or tampered archive fails with exit 3 and an untouched workspace.",
+  "type": "object",
+  "required": ["schema_version", "backup_id", "created_at", "includes", "file_count", "total_bytes", "files"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "backup_id": {
+      "type": "string",
+      "pattern": "^memory-[0-9]{8}T[0-9]{6}Z$",
+      "description": "memory-<YYYYMMDD>T<HHMMSS>Z; matches the zip and manifest filenames."
+    },
+    "created_at": {"$ref": "#/$defs/timestamp"},
+    "tool_version": {"type": ["string", "null"]},
+    "note": {"type": ["string", "null"]},
+    "includes": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Workspace-relative roots that were swept into the archive.",
+      "items": {"$ref": "#/$defs/relative_path"}
+    },
+    "include_sources": {
+      "type": "boolean",
+      "description": "True when source_materials/ was included; originals are copied, never moved."
+    },
+    "file_count": {"type": "integer", "minimum": 0},
+    "total_bytes": {"type": "integer", "minimum": 0},
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relative_path", "bytes", "sha256"],
+        "additionalProperties": false,
+        "properties": {
+          "relative_path": {"$ref": "#/$defs/relative_path"},
+          "bytes": {"type": "integer", "minimum": 0},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "relative_path": {
+      "type": "string",
+      "pattern": "^[^/\\\\:][^\\\\:]*$"
+    },
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "subject_id": "_template",
+  "name": "Template subject",
+  "description": null,
+  "exam_date": null,
+  "exam_format": null,
+  "language": null,
+  "notation_preferences": [],
+  "units": [],
+  "goals": [],
+  "constraints": [],
+  "created_at": "1970-01-01T00:00:00Z",
+  "updated_at": "1970-01-01T00:00:00Z"
+}

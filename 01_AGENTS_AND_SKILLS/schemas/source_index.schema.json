@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://learningos.local/schemas/source_index.schema.json",
+  "title": "Source index",
+  "description": "02_KNOWLEDGE/subjects/<subject_id>/source_index.json — one record per source document. source_id = \"<filename-slug>-<sha8 of relative_path>\", derived from the path rather than the content, so a corrected file keeps its id and existing citations still resolve. A source that could not be extracted is still recorded here with its hash and a warning: missing text is never stored as no content.",
+  "type": "object",
+  "required": ["schema_version", "subject_id", "updated_at", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "subject_id": {"type": "string", "pattern": "^(_template|[a-z0-9][a-z0-9_-]*)$"},
+    "updated_at": {"$ref": "#/$defs/timestamp"},
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "relative_path", "kind", "bytes", "sha256"],
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*-[0-9a-f]{8}$"
+          },
+          "relative_path": {"$ref": "#/$defs/relative_path"},
+          "title": {"type": ["string", "null"]},
+          "kind": {
+            "type": "string",
+            "enum": ["pdf", "text", "markdown", "other"]
+          },
+          "bytes": {"type": "integer", "minimum": 0},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "mtime_iso": {"$ref": "#/$defs/timestamp_or_null"},
+          "pages": {"type": ["integer", "null"], "minimum": 0},
+          "extracted_text_path": {
+            "type": ["string", "null"],
+            "description": "Workspace-relative path of the derived text, or null when nothing could be extracted."
+          },
+          "extraction": {
+            "type": "object",
+            "required": ["tool", "at"],
+            "additionalProperties": false,
+            "properties": {
+              "tool": {
+                "type": "string",
+                "description": "e.g. builtin-text, pypdf, none."
+              },
+              "tool_version": {"type": ["string", "null"]},
+              "at": {"$ref": "#/$defs/timestamp"},
+              "chars": {"type": ["integer", "null"], "minimum": 0},
+              "chars_per_page_median": {"type": ["number", "null"], "minimum": 0},
+              "likely_scanned": {
+                "type": ["boolean", "null"],
+                "description": "True when the median characters per page is below 50."
+              },
+              "needs_ocr": {
+                "type": ["boolean", "null"],
+                "description": "True when 60% or more of pages fall below that threshold. null when extraction was not attempted."
+              },
+              "warnings": {
+                "type": "array",
+                "items": {"type": "string", "minLength": 1},
+                "description": "e.g. suspiciously_short, needs_manual_extraction, pypdf not installed."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "relative_path": {
+      "type": "string",
+      "pattern": "^[^/\\\\:][^\\\\:]*$"
+    },
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "timestamp_or_null": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    }
+  }
+}

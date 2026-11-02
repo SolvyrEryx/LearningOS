@@ -1,0 +1,332 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://learningos.local/schemas/learning_input.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cycle_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "concept_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*:[a-z0-9][a-z0-9_-]*$"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "response": {
+      "type": "string",
+      "minLength": 1
+    },
+    "feedback": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "explanation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "outcome": {
+              "enum": [
+                "pass",
+                "partial",
+                "fail",
+                "not_tested"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "outcome",
+            "rationale"
+          ]
+        },
+        "application": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "outcome": {
+              "enum": [
+                "pass",
+                "partial",
+                "fail",
+                "not_tested"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "outcome",
+            "rationale"
+          ]
+        },
+        "recall": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "outcome": {
+              "enum": [
+                "pass",
+                "partial",
+                "fail",
+                "not_tested"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "outcome",
+            "rationale"
+          ]
+        },
+        "derivation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "outcome": {
+              "enum": [
+                "pass",
+                "partial",
+                "fail",
+                "not_tested"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "outcome",
+            "rationale"
+          ]
+        },
+        "assumptions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "outcome": {
+              "enum": [
+                "pass",
+                "partial",
+                "fail",
+                "not_tested"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "outcome",
+            "rationale"
+          ]
+        },
+        "transfer": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "outcome": {
+              "enum": [
+                "pass",
+                "partial",
+                "fail",
+                "not_tested"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "outcome",
+            "rationale"
+          ]
+        },
+        "method_selection": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "outcome": {
+              "enum": [
+                "pass",
+                "partial",
+                "fail",
+                "not_tested"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "outcome",
+            "rationale"
+          ]
+        },
+        "execution": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "outcome": {
+              "enum": [
+                "pass",
+                "partial",
+                "fail",
+                "not_tested"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "outcome",
+            "rationale"
+          ]
+        }
+      },
+      "required": []
+    },
+    "hints": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "solution_seen": {
+      "type": "boolean"
+    },
+    "novelty": {
+      "enum": [
+        "familiar",
+        "variant",
+        "novel"
+      ]
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evaluation": {
+      "enum": [
+        "checked",
+        "provisional"
+      ]
+    },
+    "seconds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "mistake": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "work": {
+            "type": "string",
+            "minLength": 1
+          },
+          "judgment": {
+            "enum": [
+              "pass",
+              "partial",
+              "fail",
+              "not_tested"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "work",
+          "judgment",
+          "rationale"
+        ]
+      }
+    },
+    "support": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "level",
+          "content"
+        ],
+        "properties": {
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "cycle_id",
+    "concept_id",
+    "task_id",
+    "prompt",
+    "response",
+    "feedback",
+    "dimensions",
+    "hints",
+    "solution_seen",
+    "novelty",
+    "difficulty",
+    "next_action",
+    "evaluation"
+  ]
+}

@@ -1,0 +1,49 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 481 >>
+stream
+BT
+/F1 12 Tf
+14 TL
+72 720 Td
+(LearningOS test fixture - synthetic page one.) Tj
+T*
+(Merge sort splits the array in half, sorts each half, then merges.) Tj
+T*
+(The recurrence is T\(n\) = 2T\(n/2\) + n, which solves to Theta\(n log n\).) Tj
+T*
+(Case 2 of the master theorem applies because f\(n\) = n matches n^log_b\(a\).) Tj
+T*
+(A stable merge preserves the relative order of equal keys.) Tj
+T*
+(This paragraph exists only so the extraction looks healthy to the indexer.) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000000344 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+875
+%%EOF

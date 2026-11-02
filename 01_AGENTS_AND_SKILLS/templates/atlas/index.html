@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; font-src data:; img-src data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>LearningOS · Atlas</title>
+<style>/*FONTS*/
+/*CSS*/</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to your learning</a>
+<aside class="sidebar">
+  <a class="brand" href="#today"><span class="brand-mark" aria-hidden="true">✳</span><span>LearningOS<small>A personal learning atlas</small></span></a>
+  <div class="nav-label">YOUR WORKSPACE</div>
+  <nav aria-label="Atlas views" id="nav"></nav>
+  <div class="sidebar-bottom"><span class="local-dot"></span> Local by design<span class="small">Your files. Your evidence. Your progress.</span><button class="quiet" data-view="guide">How to use LearningOS <span>↗</span></button></div>
+</aside>
+<div class="workspace">
+  <header class="topbar"><div><span class="breadcrumb">Your workspace</span><span class="slash">/</span><span id="crumb">Overview</span></div><button id="search-open" class="search-button">Search your memory <kbd>Ctrl K</kbd></button></header>
+  <main id="main" tabindex="-1"><div id="content"></div></main>
+  <footer><span>Built from your learning evidence.</span><span id="snapshot"></span></footer>
+</div>
+<dialog id="detail"><button class="close" aria-label="Close details">×</button><div id="detail-content"></div></dialog>
+<dialog id="command"><button class="close" aria-label="Close search">×</button><p class="eyebrow">YOUR SECOND MEMORY</p><h2>Find a thought.</h2><label class="sr-only" for="global-search">Search all learning memory</label><input id="global-search" placeholder="Concepts, mistakes, sessions, questions…" autocomplete="off"><div id="global-results"></div></dialog>
+<div id="toast" role="status"></div>
+<script id="atlas-data" type="application/json">__ATLAS_DATA__</script>
+<script id="font-licenses" type="application/json">__FONT_LICENSES__</script>
+<script>/*SCRIPT*/</script>
+</body></html>

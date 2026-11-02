@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Learner material stays local. Only directory guides are published.
+/02_KNOWLEDGE/*
+!/02_KNOWLEDGE/README.md
+!/02_KNOWLEDGE/inbox/
+/02_KNOWLEDGE/inbox/*
+!/02_KNOWLEDGE/inbox/README.md
+!/02_KNOWLEDGE/shared_reference/
+/02_KNOWLEDGE/shared_reference/*
+!/02_KNOWLEDGE/shared_reference/README.md
+!/02_KNOWLEDGE/subjects/
+/02_KNOWLEDGE/subjects/*
+!/02_KNOWLEDGE/subjects/README.md
+
+# Profiles, subjects, events, backups, checkpoints and reports are private.
+/03_MEMORY/*
+!/03_MEMORY/README.md
+
+# Hand-placed third-party renderer (optional; see graphs/vendor/README.md)
+01_AGENTS_AND_SKILLS/tools/graphs/vendor/mermaid.min.js
+
+# Build-agent scratch space, not part of LearningOS
+.agents/
+
+# Credentials and local editor settings
+.env
+.env.*
+!.env.example
+.kiro/
+.vscode/
+.DS_Store
+Thumbs.db

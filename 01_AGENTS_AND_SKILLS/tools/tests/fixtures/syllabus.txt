@@ -1,0 +1,16 @@
+Algorithms - synthetic syllabus (test fixture)
+
+Unit 1: Sorting
+  1.1 Insertion sort and its invariant
+  1.2 Merge sort and the divide-and-conquer pattern
+  1.3 Stability, and when it matters
+
+Unit 2: Recursion and recurrences
+  2.1 Writing a recurrence from code
+  2.2 The master theorem, cases 1 to 3
+  2.3 Recursion trees as a sanity check
+
+Unit 3: Asymptotic analysis
+  3.1 Big-O, Theta and Omega, and the difference between them
+  3.2 Common growth rates in one table
+  3.3 Reading a bound in an exam question
