@@ -8,6 +8,8 @@ Learn a subject, prepare for an interview, work towards an exam, or explore a ne
 
 **The everyday loop:** `/start` → study normally → `/save` → `/continue`.
 
+**Share with a friend:** [Visit the LearningOS landing page](https://solvyreryx.github.io/LearningOS/).
+
 [Getting-started PDF](01_AGENTS_AND_SKILLS/docs/LearningOS_Getting_Started.pdf) · [Student guide](01_AGENTS_AND_SKILLS/docs/STUDENT_GUIDE.md) · [Command reference](01_AGENTS_AND_SKILLS/tools/README.md) · [MIT license](LICENSE)
 
 ## What it does

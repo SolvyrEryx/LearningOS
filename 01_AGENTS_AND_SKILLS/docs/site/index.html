@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2eb">
+  <title>LearningOS — Pick up where you left off.</title>
+  <meta name="description" content="A personal learning workspace for your AI tutor. Keep your attempts, hints and next steps in files you own. Open source and MIT licensed.">
+  <link rel="canonical" href="https://solvyreryx.github.io/LearningOS/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LearningOS — Pick up where you left off.">
+  <meta property="og:description" content="Give your AI tutor a place to remember the work you did. A folder, a conversation, and an exact next step.">
+  <meta property="og:url" content="https://solvyreryx.github.io/LearningOS/">
+  <meta property="og:image" content="https://solvyreryx.github.io/LearningOS/assets/social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" href="assets/Newsreader.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="wordmark" href="./" aria-label="LearningOS home"><span class="brand-mark" aria-hidden="true">L<span>▪</span></span>LearningOS</a>
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="guide.pdf">The guide <span aria-hidden="true">↗</span></a>
+        <a class="nav-github" href="https://github.com/SolvyrEryx/LearningOS">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="red-square" aria-hidden="true"></span>A personal learning workspace</p>
+          <h1 id="hero-title">Make tomorrow’s<br class="desktop-break"> lesson start where<br class="desktop-break"> you left off.</h1>
+          <p class="hero-intro">Your AI tutor reads the work you saved: the problem you solved, the hint you needed, the question to try next.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#get-started">Get LearningOS <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="guide.pdf">Read the 6-page guide <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="requirements">Bring Python 3.11+ and an AI agent that can work with files.</p>
+        </div>
+
+        <div class="specimen-wrap">
+          <div class="specimen-caption"><span>From one lesson to the next</span><span class="caption-line" aria-hidden="true"></span></div>
+          <div class="notebook">
+            <div class="notebook-top"><span>LEARNING RECORD</span><span>001 / BIOLOGY</span></div>
+            <div class="session-switch" role="group" aria-label="Choose an illustrative session">
+              <button type="button" class="session-tab active" data-session="saved" aria-pressed="true">Last session</button>
+              <button type="button" class="session-tab" data-session="next" aria-pressed="false">Next session <span aria-hidden="true">↗</span></button>
+            </div>
+            <div class="note-body" id="sample-record" aria-live="polite">
+              <p class="note-date" id="note-label">WHERE WE STOPPED</p>
+              <h2 id="note-title">You solved it<br>with a hint.</h2>
+              <p class="note-topic">Mendelian inheritance</p>
+              <dl class="note-facts">
+                <div><dt>Attempt</dt><dd id="note-attempt">Solved the cross after a hint about dominant alleles.</dd></div>
+                <div><dt>Evidence</dt><dd id="note-evidence">Hinted success. Independent application still to check.</dd></div>
+                <div><dt>Next</dt><dd id="note-next">Explain the result, then try a different cross without help.</dd></div>
+              </dl>
+              <p class="margin-note" id="margin-note">The hint stays in the record.</p>
+            </div>
+            <div class="notebook-bottom"><span class="save-dot" aria-hidden="true"></span><span id="note-footer">Saved for your next session</span><span aria-hidden="true">↳</span></div>
+          </div>
+          <p class="example-label">An illustrative record, with made-up study content.</p>
+        </div>
+      </section>
+
+      <div class="workspace-strip" aria-label="What LearningOS is made of">
+        <p><span class="strip-number">01</span><span>A folder <em>you own</em></span></p>
+        <p><span class="strip-number">02</span><span>A tutor <em>you talk to</em></span></p>
+        <p><span class="strip-number">03</span><span>A next step <em>you can find</em></span></p>
+      </div>
+
+      <section class="method section-grid" id="how-it-works" aria-labelledby="method-title">
+        <div class="section-intro">
+          <p class="eyebrow">A record of the work</p>
+          <h2 id="method-title">“I understand”<br>is a place to start.</h2>
+          <p>Then your tutor asks you to explain it in your own words and try a different problem. A few days later, you check what stuck.</p>
+          <p>LearningOS keeps those attempts separate from the help you needed, so your tutor has something concrete to work from.</p>
+        </div>
+        <ol class="method-list">
+          <li><span class="step-number">01</span><div><h3>Start with what you can do.</h3><p>Your tutor checks a small piece first, then teaches the part you’re missing. A subject, a skill or a single question is enough.</p></div></li>
+          <li><span class="step-number">02</span><div><h3>Keep the useful details.</h3><p>Your tutor saves the question and your working, including the hint that helped or the mistake you repeated.</p></div></li>
+          <li><span class="step-number">03</span><div><h3>Return with a next step.</h3><p>Say <code>/save</code> before you stop. Next time, <code>/continue</code> brings back the handover and what’s due for review.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="start-section" id="get-started" aria-labelledby="start-title">
+        <div class="start-heading"><p class="eyebrow">Your first session</p><p class="small-label">OPEN SOURCE · MIT LICENSED</p></div>
+        <div class="start-grid">
+          <div class="start-copy">
+            <h2 id="start-title">Give it something<br>you want to learn.</h2>
+            <ol class="setup-list">
+              <li><span>1.</span><p>Download and extract your own copy of LearningOS.</p></li>
+              <li><span>2.</span><p>Open the folder in a file-capable AI agent, with Python 3.11+ installed.</p></li>
+              <li><span>3.</span><p>Paste this prompt. Change the subject. Answer the first question.</p></li>
+            </ol>
+            <a class="button button-dark" href="https://github.com/SolvyrEryx/LearningOS/archive/refs/heads/main.zip">Download LearningOS <span aria-hidden="true">↓</span></a>
+            <a class="source-link" href="https://github.com/SolvyrEryx/LearningOS">Or explore the repository <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="prompt-paper">
+            <div class="prompt-heading"><span>PASTE INTO YOUR AI TUTOR</span><button id="copy-prompt" type="button">Copy prompt <span aria-hidden="true">↗</span></button></div>
+            <p id="starter-prompt">Read AGENTS.md and the five core files it points to. Run <code>python 01_AGENTS_AND_SKILLS/tools/learningos.py init-workspace</code>, then <code>python 01_AGENTS_AND_SKILLS/tools/learningos.py validate</code>. Preserve existing files and report any errors.<br><br>I want to learn <span class="subject-edit">Biology</span>. Help me choose a small first goal, check what I already know, and start teaching. Save real evidence as we go.</p>
+            <div class="prompt-footer"><span>Swap Biology for your subject.</span><span id="copy-status" role="status" aria-live="polite"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-band" aria-labelledby="guide-title">
+        <a class="guide-icon" href="guide.pdf" tabindex="-1" aria-hidden="true"><span>LearningOS</span><span class="guide-cover-title">Start here.</span><span>THE FIELD GUIDE / 6 PAGES</span></a>
+        <div><p class="eyebrow">Keep this close</p><h2 id="guide-title">The first session, on paper.</h2><p>Setup, study, sources, saving your work, and what to do when something goes wrong.</p></div>
+        <a class="text-link" href="guide.pdf">Open the guide <span class="link-meta">PDF · 6 pages</span><span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="questions section-grid" aria-labelledby="questions-title">
+        <div class="section-intro"><p class="eyebrow">A few practical things</p><h2 id="questions-title">Before you begin.</h2></div>
+        <div class="faq-list">
+          <details><summary>What do I need installed?<span aria-hidden="true">+</span></summary><p>Python 3.11 or newer, and an AI agent that can read and write local files and run shell commands. The core Python toolkit uses the standard library. Your chosen agent may need its own account or subscription.</p></details>
+          <details><summary>Can I start without a syllabus?<span aria-hidden="true">+</span></summary><p>Yes. Pick a subject or skill and one thing you want to be able to do. Exams, deadlines and uploaded notes are optional. When you add sources, your tutor can teach from them and cite the page or line.</p></details>
+          <details><summary>What stays on my computer?<span aria-hidden="true">+</span></summary><p>Your workspace holds your documents, attempts, learning state and handovers. The study toolkit makes no network calls. If your AI tutor uses a hosted model, content it reads into the conversation is processed by that provider. Local files do not make the model’s inference local.</p></details>
+          <details><summary>Where do lessons and progress live?<span aria-hidden="true">+</span></summary><p>Lessons happen in your AI agent’s chat. Your tutor saves evidence into the workspace and generates the Learning Atlas, an offline report you open in a browser. Ask <code>/atlas</code> to rebuild it, then reload the report. Ask <code>/save</code> before closing your chat.</p></details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="wordmark" href="./"><span class="brand-mark" aria-hidden="true">L<span>▪</span></span>LearningOS</a><p>Made by <a href="https://github.com/SolvyrEryx">Solvyr Eryx</a>. Yours to use and change.</p><div><a href="https://github.com/SolvyrEryx/LearningOS">GitHub <span aria-hidden="true">↗</span></a><a href="https://github.com/SolvyrEryx/LearningOS/blob/main/LICENSE">MIT license <span aria-hidden="true">↗</span></a></div></footer>
+  </div>
+</body>
+</html>

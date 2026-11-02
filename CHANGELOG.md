@@ -5,6 +5,9 @@ All notable changes to LearningOS are recorded here. Versions follow semantic ve
 
 ## 0.3.0 - public starter distribution (2026-11-02)
 
+- Added an editorial landing page with setup prompt, illustrative learning record, PDF guide,
+  responsive layouts and GitHub Pages publication from a static-only branch.
+
 - Added a public-facing README with fresh-install instructions, a first-session tutor prompt,
   everyday chat commands, source handling, privacy and recovery guidance.
 - Added a six-page getting-started PDF and a local documentation build helper.

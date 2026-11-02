@@ -34,3 +34,6 @@ __pycache__/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Project-local skill installer metadata
+/skills-lock.json
